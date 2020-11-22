@@ -1,0 +1,10 @@
+
+@keyframes shimmerLoader{
+    0%{
+      background-position: -50% 0;
+      width: 70%;
+    }
+    100%{
+      background-position: 50% 0;
+    }
+  }
