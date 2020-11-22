@@ -16,16 +16,15 @@
       <i class="material-icons" title="Close" @click="showImage = false">
         close</i
       >
-      <div class="image-modal">
-        <div class="img">
-          <img
-            :src="image.urls.regular"
-            :srcset="`${image.urls.small} 100%, ${image.urls.full} 100%`"
-            sizes="(max-width: 475px) 100%, (min-width: 992px) 100%"
-            alt="image"
-          />
-        </div>
-
+      <div
+        class="image-modal"
+        v-bind:style="{
+          'background-image':
+            'linear-gradient(rgb(0 0 0 / 48%) 0%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.95) 100%), url(' +
+            image.urls.regular +
+            ')'
+        }"
+      >
         <div class="modal-text">
           <div class="name">
             {{ image.user.name }}
@@ -55,9 +54,9 @@ export default {
 @import "@/assets/scss/keyframes.scss";
 
 .image-holder {
-  background-size: 100% 100%;
-  background-position: inherit;
-  cursor: pointer;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: zoom-in;
   .mask {
     color: $background;
     opacity: 0.8;
